@@ -4,7 +4,7 @@ public class myArrays{
         for (int i=0;i<nums.length;i++){
             out+=nums[i];
             if (i!=nums.length-1){
-                out+="";
+                out+=", ";
             }
         }
         out+="]";

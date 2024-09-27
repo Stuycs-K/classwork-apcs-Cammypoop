@@ -10,6 +10,14 @@ public class myArrays{
         out+="]";
         return out;
     }
+    public static int[] returnCopy(int[]ary){
+        int[] out = new int[ary.length];
+        for (int i =0;i < out.length - 1; i++){
+            out[i] = ary[i];
+        }
+        return out;
+        
+    }
     public static void main(String[] args) {
         int[] a = new int[]{1,3,4,5};
         System.out.println("Variable: " + a  +". Expected: 1345. Returned:" + aryToString(a) );

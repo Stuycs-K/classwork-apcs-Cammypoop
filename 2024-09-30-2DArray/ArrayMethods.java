@@ -17,6 +17,7 @@ public class ArrayMethods {
         for (int i = 0; i < nums.length; i++){
             if (nums[i].length != 0) {
                 for (int ii = 0; i < nums[i].length; ii++){
+                    count += nums[i][ii];
             }
         }
     }

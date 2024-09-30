@@ -17,6 +17,11 @@ public class myArrays{
         }
         return out;
     }
+    public static int[] concatArray(int[] ary1, int[] ary2){
+        int[] out = {1};
+
+        return out;
+    }
     public static void main(String[] args) {
         System.out.println("aryToCopy(int[] nums):");
         // compare the strings
@@ -26,7 +31,8 @@ public class myArrays{
         System.out.println("Variable: " + "[5, 6, 13]"  + ". Returned: " + aryToString(a) + ".");
         a = new int[]{1};
         System.out.println("Variable: " + "[1]"  + ". Returned: " + aryToString(a) + ".");
-
+        System.out.println();
+        
         System.out.println("returnCopy(int[] ary):");
         System.out.println("(Correct output is false)");
         // check if they have different addresses
@@ -36,5 +42,19 @@ public class myArrays{
         System.out.println("Variable: " + "[5, 6, 13]"  + ". Returned: " + (returnCopy(a) == a));
         a = new int[]{1};
         System.out.println("Variable: " + "[1]"  + ". Returned: " + (returnCopy(a) == a));
+        System.out.println();
+
+        System.out.println("concatArray(int[] ary1, int[] ary2):");
+        // check if output is equal to arrays combined
+        a = new int[]{1,3,4,5};
+        int[] b = {5,6,13};
+        System.out.println("Variables: " + "[1, 3, 4, 5] + [5, 6, 13], Expected: [1, 3, 4, 5, 5, 6, 13]"  + ". Returned: " + (aryToString(concatArray(a, b))));
+        a = new int[]{1,3,4,5};
+        b = new int[]{1};
+        System.out.println("Variables: " + "[1, 3, 4, 5] + [1], Expected: [1, 3, 4, 5, 1]"  + ". Returned: " + (aryToString(concatArray(a, b))));
+        a = new int[]{5,6,13};
+        b = new int[]{1};
+        System.out.println("Variables: " + "[5, 6, 13] + [1], Expected: [5, 6, 13, 1]"  + ". Returned: " + (aryToString(concatArray(a, b))));
+
     }
 }

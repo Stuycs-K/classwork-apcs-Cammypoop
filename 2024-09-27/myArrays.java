@@ -18,8 +18,13 @@ public class myArrays{
         return out;
     }
     public static int[] concatArray(int[] ary1, int[] ary2){
-        int[] out = {1};
-
+        int[] out = new int[ary1.length + ary2.length];
+        for (int i = 0; i < ary1.length; i++){
+            out[i] = ary1[i];
+        }
+        for (int i = 0; i < ary2.length; i++){
+            out[i+ary1.length] = ary2[i];
+        }
         return out;
     }
     public static void main(String[] args) {
@@ -55,6 +60,5 @@ public class myArrays{
         a = new int[]{5,6,13};
         b = new int[]{1};
         System.out.println("Variables: " + "[5, 6, 13] + [1], Expected: [5, 6, 13, 1]"  + ". Returned: " + (aryToString(concatArray(a, b))));
-
     }
 }

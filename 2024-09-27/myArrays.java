@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class myArrays{
     public static String aryToString(int[] nums){
         String out="[";
@@ -19,8 +21,12 @@ public class myArrays{
         
     }
     public static void main(String[] args) {
-        int[] a = new int[]{1,3,4,5};
-        System.out.println("Variable: " + a  +". Expected: 1345. Returned:" + aryToString(a) );
+        int[] a = {1,3,4,5};
+        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
+        a = new int[]{5,6,13};
+        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
+        a = new int[]{1};
+        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
         
 
     }

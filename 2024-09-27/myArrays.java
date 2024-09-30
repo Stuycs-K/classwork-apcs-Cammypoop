@@ -22,11 +22,11 @@ public class myArrays{
     }
     public static void main(String[] args) {
         int[] a = {1,3,4,5};
-        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
+        System.out.println("Variable: " + "[1, 3, 4, 5]"  +". Returned: " + aryToString(a) + ".");
         a = new int[]{5,6,13};
-        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
+        System.out.println("Variable: " + "[5, 6, 13]"  +". Returned: " + aryToString(a) + ".");
         a = new int[]{1};
-        System.out.println("Variable: " + Arrays.toString(a)  +". Returned: " + aryToString(a) + ".");
+        System.out.println("Variable: " + "[1]"  +". Returned: " + aryToString(a) + ".");
         
 
     }

@@ -1,3 +1,5 @@
+// Steven Wu swu60@stuy.edu
+// Haowen Xiao hxiao61@stuy.edu
 public class ArrayMethods {
     public static String arrToString(int[] nums){
         String out="[";
@@ -13,8 +15,8 @@ public class ArrayMethods {
     public static int arr2DSum(int[][]nums) {
         int count = 0;
         for (int i = 0; i < nums.length; i++){
-            for (int ii = 0; i < nums[i].length; ii++){
-                
+            if (nums[i].length != 0) {
+                for (int ii = 0; i < nums[i].length; ii++){
             }
         }
     }

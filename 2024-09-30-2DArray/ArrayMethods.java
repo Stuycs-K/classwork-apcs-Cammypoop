@@ -18,20 +18,22 @@ public class ArrayMethods {
             if (nums[i].length != 0) {
                 for (int ii = 0; i < nums[i].length; ii++){
                     count += nums[i][ii];
+                }
             }
         }
+        return count;
     }
     public static void main(String[] args) {
         int [][] a = {{2,1},{3,4,5},{1}};
-        System.out.println("Expected: 16 " + "Output: "arr2DSum(a));
-        int [][] a = new int [][]{{},{},{}};
-        System.out.println("Expected: 0 " + "Output: "arr2DSum(a));
-        int [][] a = new int [][]{{23, 24, 29},{},{1}};
-        System.out.println("Expected: 16 " + "Output: "arr2DSum(a));
-        int [][] a = new int [][]{{1},{2},{3}};
-        System.out.println("Expected: 6 " + "Output: "arr2DSum(a));
-        int [][] a = new int [][]{{-23, 1, 2},{9, 11},{}};
-        System.out.println("Expected: 0" + "Output: "arr2DSum(a));
+        System.out.println("Expected: 16 " + "Output: " + arr2DSum(a));
+        a = new int [][]{{},{},{}};
+        System.out.println("Expected: 0 " + "Output: " + arr2DSum(a));
+        a = new int [][]{{23, 24, 29},{},{1}};
+        System.out.println("Expected: 16 " + "Output: " + arr2DSum(a));
+        a = new int [][]{{1},{2},{3}};
+        System.out.println("Expected: 6 " + "Output: " + arr2DSum(a));
+        a = new int [][]{{-23, 1, 2},{9, 11},{}};
+        System.out.println("Expected: 0" + "Output: " + arr2DSum(a));
 
     }
 }

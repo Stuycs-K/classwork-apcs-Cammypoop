@@ -70,7 +70,16 @@ public class ArrayMethods {
     // If you don't see a good way to do that, you should stop and look at prior
     // methods.
     public static int[][] copy(int[][] nums) {
-        return null;// placeholder so it compiles
+        int[][] out = new int[][] out[nums.length][nums[0].length];
+        return null;
+    }
+
+    public static int[] 1dcopy(int[] ary){
+        int[] out = new int[ary.length];
+        for (int i = 0; i < out.length; i++){
+            out[i] = ary[i];
+        }
+        return out;
     }
 
     public static void main(String[] args) {

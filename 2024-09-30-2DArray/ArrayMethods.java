@@ -32,6 +32,15 @@ public class ArrayMethods {
         }
         return count;
     }
+    public static int[][] swapRC(int[][]nums){
+        int[][] out = new int[nums[0].length][nums.length];
+        for (int i = 0; i < nums.length; i++){
+            for (int ii = 0; ii < nums[i].length; ii++){
+                out[ii][i] = nums[i][ii];
+            }
+        }
+        return out;
+    }
     public static void main(String[] args) {
         int [][] a = {{2,1},{3,4,5},{1}};
         System.out.println("Expected: 16 " + "Output: " + arr2DSum(a));

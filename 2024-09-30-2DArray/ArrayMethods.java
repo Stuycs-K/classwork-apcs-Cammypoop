@@ -72,12 +72,12 @@ public class ArrayMethods {
     public static int[][] copy(int[][] nums) {
         int[][] out = new int[nums.length][nums[0].length];
         for (int i = 0; i < out.length; i++){
-            //out[i];
+            out[i] = oneDCopy(nums[i]);
         }
         return out;
     }
 
-    public static int[] onedcopy(int[] nums){
+    public static int[] oneDCopy(int[] nums){
         int[] out = new int[nums.length];
         for (int i = 0; i < out.length; i++){
             out[i] = nums[i];
@@ -145,5 +145,8 @@ public class ArrayMethods {
         e = new int[][] { { -10, 20 }, { -30, -40 }, { -50, 60 }, { 70, -80 } };
         replaceNegative(e);
         System.out.println("Expected: [[1, 20], [0, 1], [0, 60], [70, 0]] " + "Output: " + arrToString(e));
+
+        int[][] f = {{1}, {2, 3}, {4, 5, 6}};
+        new int[][] f2 = new int[][] copy(f);
     }
 }

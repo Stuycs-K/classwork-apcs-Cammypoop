@@ -147,6 +147,24 @@ public class ArrayMethods {
         System.out.println("Expected: [[1, 20], [0, 1], [0, 60], [70, 0]] " + "Output: " + arrToString(e));
 
         int[][] f = {{1}, {2, 3}, {4, 5, 6}};
-        new int[][] f2 = new int[][] copy(f);
+        int[][] f2 = copy(f);
+        f2[0][0] = 99;
+        System.out.println("Expected: [[1], [2, 3], [4, 5, 6]] " + "Output: " + arrToString(f));
+        System.out.println("Expected: [[99], [2, 3], [4, 5, 6]] " + "Output: " + arrToString(f2));
+        f = new int[][] {{10, 20, 30, 40}};
+        f2 = copy(f);
+        f2[0][1] = 99;
+        System.out.println("Expected: [[10, 20, 30, 40]] " + "Output: " + arrToString(f));
+        System.out.println("Expected: [[10, 99, 30, 40]] " + "Output: " + arrToString(f2));
+        f = new int[][]{{1, 2}, {3}, {4, 5, 6, 7}};
+        f2 = copy(f);
+        f2[2][3] = 99;
+        System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 7]] " + "Output: " + arrToString(f));
+        System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 99]] " + "Output: " + arrToString(f2));
+        f = new int[][]{{42}};
+        f2 = copy(f);
+        f2[0][0] = 99;
+        System.out.println("Expected: [[42]] " + "Output: " + arrToString(f));
+        System.out.println("Expected: [[99]] " + "Output: " + arrToString(f2));
     }
 }

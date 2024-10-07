@@ -8,7 +8,8 @@ public class ArrayDemo {
         // Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make
         // sure yours is correct
         // do not use any other Arrays.method()
-
+        int[] a = {2, 1, 3};
+        System.out.println();
     }
 
     // 0. Include your prior methods to help you print a 1D/2D array of ints.

@@ -133,5 +133,17 @@ public class ArrayMethods {
         result = swapRC(d);
         System.out.println("Expected: [[10, 30, 50, 70], [20, 40, 60, 80]] " + "Output: " + arrToString(result));
 
+        int[][] e = { { - 2, - 1 }, {  -3, -4,-5 }, { -1 } };
+        replaceNegative(e);
+        System.out.println("Expected: [[1, 0], [0, 1, 0], [0]] " + "Output: " + arrToString(e));
+        e = new int[][] { {  2, - 1 }, {  -3, 4,-5 }, { 1 } };
+        replaceNegative(e);
+        System.out.println("Expected: [[2, 0], [0, 4, 0], [1]] " + "Output: " + arrToString(e));
+        e = new int[][] { { 10 , 1 }, {  0 , -4,0 }, { -1, 1, -1 } };
+        replaceNegative(e);
+        System.out.println("Expected: [[10, 1], [0, 0, 0], [0, 1, 1]] " + "Output: " + arrToString(e));
+        e = new int[][] { { -10, 20 }, { -30, -40 }, { -50, 60 }, { 70, -80 } };
+        replaceNegative(e);
+        System.out.println("Expected: [[1, 20], [0, 1], [0, 60], [70, 0]] " + "Output: " + arrToString(e));
     }
 }

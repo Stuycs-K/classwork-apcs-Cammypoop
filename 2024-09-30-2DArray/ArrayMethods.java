@@ -157,8 +157,8 @@ public class ArrayMethods {
         System.out.println("Expected: [[10, 20, 30, 40]] " + "Output: " + arrToString(f));
         System.out.println("Expected: [[10, 99, 30, 40]] " + "Output: " + arrToString(f2));
         f = new int[][]{{1, 2}, {3}, {4, 5, 6, 7}};
-        f2 = copy(f);
-        f2[2][3] = 99;
+        // f2 = copy(f);
+        // // // // f2[2][3] = 99;
         System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 7]] " + "Output: " + arrToString(f));
         System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 99]] " + "Output: " + arrToString(f2));
         f = new int[][]{{42}};

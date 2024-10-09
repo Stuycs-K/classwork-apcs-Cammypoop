@@ -9,9 +9,26 @@ public class ArrayDemo {
         // sure yours is correct
         // do not use any other Arrays.method()
         int[] a = {2, 1, 3};
-        System.out.println();
-    }
+        System.out.println("Built in method:" + Arrays.toString(a) + " My method:" + arrToString(a));
+        int[][] b = new int[][]{{2},{3}};
+        // System.out.println("Built in method:" + Arrays.deepToString(b) + " My method:" + arrToString(b));
+        // deepToString() works with 2d+ arrays
+        
+        System.out.printf("Built in method: %s My method: %s\n", Arrays.deepToString(b), arrToString(b));
+        int[][] c = {{5,4,0},{5,00},{0,0},{3}};
+        System.out.printf("Expected: %s Output: %s\n", "4", countZeros2D(c));
+        // System.out.println("Expected: 4" + "Output:" + );
+        c = new int[][]{{0},{0,0},{0,0}};
+        System.out.printf("Expected: %s Output: %s\n", "5", countZeros2D(c));
+        // System.out.println("Expected: 5" + "Output:" + );
+        c = new int[][]{{},{0},{}};
+        System.out.printf("Expected: %s Output: %s\n", "1", countZeros2D(c));
+        // System.out.println("Expected: 1" + "Output:" + );
+        c = new int[][]{{5,4,1123},{5,5,60},{550,0},{3}};
+        System.out.printf("Expected: %s Output: %s\n", "1", countZeros2D(c));
+        // System.out.println("Expected: 1" + "Output:" + );
 
+    }
     // 0. Include your prior methods to help you print a 1D/2D array of ints.
     public static String arrToString(int[] ary) {
         String out = "[";

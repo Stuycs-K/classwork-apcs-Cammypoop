@@ -27,6 +27,59 @@ public class ArrayDemo {
         c = new int[][]{{5,4,1123},{5,5,60},{550,0},{3}};
         System.out.printf("Expected: %s Output: %s\n", "1", countZeros2D(c));
         // System.out.println("Expected: 1" + "Output:" + );
+        int[][] d = { { - 2, - 1 }, {  -3, -4,-5 }, { -1 } };
+        replaceNegative(d);
+        System.out.println("Expected: [[1, 0], [0, 1, 0], [0]] " + "Output: " + Arrays.deepToString(d));
+        d = new int[][] { {  2, - 1 }, {  -3, 4,-5 }, { 1 } };
+        replaceNegative(d);
+        System.out.println("Expected: [[2, 0], [0, 4, 0], [1]] " + "Output: " + Arrays.deepToString(d));
+        d = new int[][] { { 10 , 1 }, {  0 , -4,0 }, { -1, 1, -1 } };
+        replaceNegative(d);
+        System.out.println("Expected: [[10, 1], [0, 0, 0], [0, 1, 1]] " + "Output: " + Arrays.deepToString(d));
+        d = new int[][] { { -10, 20 }, { -30, -40 }, { -50, 60 }, { 70, -80 } };
+        replaceNegative(d);
+        System.out.println("Expected: [[1, 20], [0, 1], [0, 60], [70, 0]] " + "Output: " + Arrays.deepToString(d));
+
+        int[][] e = {{1}, {2, 3}, {4, 5, 6}};
+        int[][] e2 = copy(e);
+        e2[0][0] = 99;
+        System.out.println("Expected: [[1], [2, 3], [4, 5, 6]] " + "Output: " + Arrays.deepToString(e));
+        System.out.println("Expected: [[99], [2, 3], [4, 5, 6]] " + "Output: " + Arrays.deepToString(e2));
+        e = new int[][] {{10, 20, 30, 40}};
+        e2 = copy(e);
+        e2[0][1] = 99;
+        System.out.println("Expected: [[10, 20, 30, 40]] " + "Output: " + Arrays.deepToString(e));
+        System.out.println("Expected: [[10, 99, 30, 40]] " + "Output: " + Arrays.deepToString(e2));
+        e = new int[][]{{1, 2}, {3}, {4, 5, 6, 7}};
+        e2 = copy(e);
+        e2[2][3] = 99;
+        System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 7]] " + "Output: " + Arrays.deepToString(e));
+        System.out.println("Expected: [[1, 2], [3], [4, 5, 6, 99]] " + "Output: " + Arrays.deepToString(e2));
+        e = new int[][]{{42}};
+        e2 = copy(e);
+        e2[0][0] = 99;
+        System.out.println("Expected: [[42]] " + "Output: " + Arrays.deepToString(e));
+        System.out.println("Expected: [[99]] " + "Output: " + Arrays.deepToString(e2));
+
+        int[][] f = { { 1, 2, 3 }, { 4, 5, 6 } };
+        int[][] result = swapRC(f);
+        System.out.println("Expected: [[1, 4], [2, 5], [3, 6]] " + "Output: " + Arrays.deepToString(result));
+        f = new int[][] { { 7, 8 }, { 9, 10 }, { 11, 12 } };
+        result = swapRC(f);
+        System.out.println("Expected: [[7, 9, 11], [8, 10, 12]] " + "Output: " + Arrays.deepToString(result));
+        f = new int[][] { { 1, 2 }, { 3, 4 } };
+        result = swapRC(f);
+        System.out.println("Expected: [[1, 3], [2, 4]] " + "Output: " + Arrays.deepToString(result));
+        f = new int[][] { { 5 } };
+        result = swapRC(f);
+        System.out.println("Expected: [[5]] " + "Output: " + Arrays.deepToString(result));
+        f = new int[][] { { 10, 20 }, { 30, 40 }, { 50, 60 }, { 70, 80 } };
+        result = swapRC(f);
+        System.out.println("Expected: [[10, 30, 50, 70], [20, 40, 60, 80]] " + "Output: " + Arrays.deepToString(result));
+        int[][] g = {{1,2},{3}};
+        System.out.printf("Expected: %s Output: %s\n","<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>", htmlTable(g));
+        g = new int[][]{{1,2},{3},{53,}};
+        System.out.printf("Expected: %s Output: %s\n","<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr><tr><td>53</td><td></td></tr></table>", htmlTable(g));
 
     }
     // 0. Include your prior methods to help you print a 1D/2D array of ints.

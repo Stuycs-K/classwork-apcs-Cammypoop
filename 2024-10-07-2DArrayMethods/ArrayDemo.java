@@ -133,18 +133,18 @@ public class ArrayDemo {
         String out = "<table>";
         for (int i = 0; i < nums.length; i++) {
             for (int ii = 0; ii < nums[i].length; ii++) {
-                if (ii = 0){
+                if (nums[i][ii] == 0){
                     out += "<tr>";
                 }
                 out += "<td>";
                 out += nums[i][ii];
                 out += "/td";
-                if (ii = nums[i].length - 1){
+                if (nums[i][ii] == nums[i].length - 1){
                     out += "</tr>";
                 }
             }
         }
-        String out += "</table>";
+        out += "</table>";
         return out;
     }
 }

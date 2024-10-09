@@ -79,8 +79,9 @@ public class ArrayDemo {
         int[][] g = {{1,2},{3}};
         System.out.printf("Expected: %s Output: %s\n","<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>", htmlTable(g));
         g = new int[][]{{1,2},{3},{53,}};
-        System.out.printf("Expected: %s Output: %s\n","<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr><tr><td>53</td><td></td></tr></table>", htmlTable(g));
-
+        System.out.printf("Expected: %s Output: %s\n","<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr><tr><td>53</td></tr></table>", htmlTable(g));
+        g = new int[][]{{00,0,2},{53,}};
+        System.out.printf("Expected: %s Output: %s\n","<table><tr><td>0</td><td>0</td><td>2</td></tr><tr><td>53</td></tr></table>", htmlTable(g));
     }
     // 0. Include your prior methods to help you print a 1D/2D array of ints.
     public static String arrToString(int[] ary) {
@@ -203,13 +204,13 @@ public class ArrayDemo {
         String out = "<table>";
         for (int i = 0; i < nums.length; i++) {
             for (int ii = 0; ii < nums[i].length; ii++) {
-                if (nums[i][ii] == 0){
+                if (ii == 0){
                     out += "<tr>";
                 }
                 out += "<td>";
                 out += nums[i][ii];
-                out += "/td";
-                if (nums[i][ii] == nums[i].length - 1){
+                out += "</td>";
+                if (ii == nums[i].length - 1){
                     out += "</tr>";
                 }
             }

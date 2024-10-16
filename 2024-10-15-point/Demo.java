@@ -12,11 +12,11 @@ public class Demo{
       Point p1 = new Point(1,1);
       Point p2 = new Point(-1,-1);
       Point p3 = new Point(3,4);
-      System.out.println( p3);
+      Point p4 = new Point(p3);
+      System.out.println("p3:" + p3 + " p4:" + p4);
       System.out.println( distance(p1,p2));
       System.out.println( Point.distance(p1,p2));
       System.out.println( p1.distanceTo(p2));
-      Point p4 = new Point(p3);
-      System.out.println("p3:" + p3 + "p4:" + p4);
+
     }
   }

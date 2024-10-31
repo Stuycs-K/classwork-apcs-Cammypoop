@@ -12,7 +12,7 @@ public class TriangleTester {
     public static int countTrianglesA(String filename){
         int count = 0;
         try {
-            File file = new File("Tri.txt");
+            File file = new File("inputTri.txt");
             Scanner input = new Scanner(file);
             while (input.hasNextLine()){
                 int s1 = input.nextInt();
@@ -27,6 +27,6 @@ public class TriangleTester {
             System.out.println("File not found");
             return 0;
         }
-        return 0;
+        return count;
     }
 }

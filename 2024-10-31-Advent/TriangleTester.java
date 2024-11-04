@@ -4,15 +4,12 @@ import java.util.Scanner;
 
 public class TriangleTester {
     public static boolean TestTriangle(int s1, int s2, int s3) {
-        if (s1 + s2 > s3 && s2 + s3 > s1 && s1 + s3 > s2) {
-            return true;
-        }
-        return false;
+        return (s1 + s2 > s3 && s2 + s3 > s1 && s1 + s3 > s2);
     }
 
     public static int countTrianglesA(String filename) {
-        int count = 0;
         try {
+            int count = 0;
             File file = new File(filename);
             Scanner input = new Scanner(file);
             while (input.hasNextLine()) {
@@ -31,8 +28,11 @@ public class TriangleTester {
         }
 
     }
+    public static int countTrianglesB(String filename) {
+
+    }
 
     public static void main(String[] args) {
-        countTrianglesA("inputTri.txt");
+        System.out.println(countTrianglesA("inputTri.txt"));
     }
 }

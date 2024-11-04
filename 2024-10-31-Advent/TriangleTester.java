@@ -47,12 +47,13 @@ public class TriangleTester {
                     input.nextInt();
                     input.nextInt();
                     int s3 = input.nextInt();
-                    while (input.hasNextInt()) {
-                        input.nextInt();
-                    }
                     if (TestTriangle(s1, s2, s3)) {
                         count++;
                     }
+                    while (input.hasNextInt()) {
+                        input.nextInt(); // reset to start of next row
+                    }
+                    System.out.println("Shifting from " + column + " to " + (column + 1) + ". Count: " + count);
                 }
                 input.close();
             }

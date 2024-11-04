@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class TriangleTester {
@@ -28,14 +29,15 @@ public class TriangleTester {
         }
 
     }
+
     public static int countTrianglesB(String filename) {
+        int count = 0;
         try {
-            int count = 0;
             for (int column = 0; column < 3; column++) {
                 File file = new File(filename);
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
-                    for (int i = column; i > 0; i--){
+                    for (int i = column; i > 0; i--) { // shift to the correct column
                         input.nextInt();
                     }
                     int s1 = input.nextInt();
@@ -45,8 +47,10 @@ public class TriangleTester {
                     input.nextInt();
                     input.nextInt();
                     int s3 = input.nextInt();
-                    input.nextInt();
-                    input.nextInt();
+                    if (input.hasNextLine()) {
+                        input.nextInt();
+                        input.nextInt();
+                    }
                     if (TestTriangle(s1, s2, s3)) {
                         count++;
                     }
@@ -57,10 +61,16 @@ public class TriangleTester {
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
             return 0;
+        } catch (NoSuchElementException ex) {
+            System.out.println("Next int doesn't exist. Count: " + count);
+            ex.printStackTrace();
+            System.exit(1);
+            return 0;
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(countTrianglesA("inputTri.txt"));
+        // System.out.println(countTrianglesA("inputTri.txt"));
+        System.out.println(countTrianglesB("inputTri.txt"));
     }
 }

@@ -37,7 +37,7 @@ public class TriangleTester {
                 File file = new File(filename);
                 Scanner input = new Scanner(file);
                 while (input.hasNextLine()) {
-                    for (int i = column; i > 0; i--) { // shift to the correct column
+                    for (int i = 0; i < column; i++) { // shift to the correct column
                         input.nextInt();
                     }
                     int s1 = input.nextInt();
@@ -47,8 +47,7 @@ public class TriangleTester {
                     input.nextInt();
                     input.nextInt();
                     int s3 = input.nextInt();
-                    if (input.hasNextLine()) {
-                        input.nextInt();
+                    while (input.hasNextInt()) {
                         input.nextInt();
                     }
                     if (TestTriangle(s1, s2, s3)) {

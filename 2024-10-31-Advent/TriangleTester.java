@@ -50,10 +50,9 @@ public class TriangleTester {
                     if (TestTriangle(s1, s2, s3)) {
                         count++;
                     }
-                    while (input.hasNextInt()) {
-                        input.nextInt(); // reset to start of next row
+                    for (int i = column; i < 2; i++) { // go to the end of the row
+                        input.nextInt();
                     }
-                    System.out.println("Shifting from " + column + " to " + (column + 1) + ". Count: " + count);
                 }
                 input.close();
             }
@@ -70,7 +69,7 @@ public class TriangleTester {
     }
 
     public static void main(String[] args) {
-        // System.out.println(countTrianglesA("inputTri.txt"));
+        System.out.println(countTrianglesA("inputTri.txt"));
         System.out.println(countTrianglesB("inputTri.txt"));
     }
 }

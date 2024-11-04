@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TriangleTester {
     public static boolean TestTriangle(int s1, int s2, int s3) {
-        if (s1 + s2 > s3 || s2 + s3 > s1 || s1 + s3 > s2) {
+        if (s1 + s2 > s3 && s2 + s3 > s1 && s1 + s3 > s2) {
             return true;
         }
         return false;
@@ -19,17 +19,19 @@ public class TriangleTester {
                 int s1 = input.nextInt();
                 int s2 = input.nextInt();
                 int s3 = input.nextInt();
-                TestTriangle(s1, s2, s3);
+                if (TestTriangle(s1, s2, s3)){
+                    count++;
+                }
             }
             input.close();
             return count;
         } catch (FileNotFoundException ex) {
-            // File not found what should you do?
             System.out.println("File not found");
             return 0;
         }
-        
+
     }
+
     public static void main(String[] args) {
         countTrianglesA("inputTri.txt");
     }

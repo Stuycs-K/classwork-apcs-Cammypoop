@@ -1,3 +1,6 @@
+// Overriding the bird's getName method made it say that its name is "The Mighty" whatever.
+// This made the Bird.speak() method also change, but did not affect the parent Animal class.
+//
 public class Driver
 {
   public static void main(String[] args)

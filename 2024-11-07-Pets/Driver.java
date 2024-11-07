@@ -6,6 +6,7 @@ public class Driver
     animal1.speak();
     Animal animal2 = new Animal("woof", 5, "Dog");
     animal2.speak();
+    Bird bird1 = new Bird("caw", 5, "Crow", 5.0, "Black");
+    bird1.speak();
   }
 }
- 

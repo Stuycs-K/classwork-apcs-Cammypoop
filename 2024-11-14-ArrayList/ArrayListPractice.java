@@ -1,10 +1,11 @@
 import java.util.*;
 public class ArrayListPractice{
   public static void main(String[] args) {
-    ArrayList<String> test = createRandomArray(30);
+    ArrayList<String> test = createRandomArray(100);
     System.out.println(test);
     replaceEmpty(test);
     System.out.println(test);
+    System.out.println(makeReversedList(test));
   }
   public static ArrayList<String>createRandomArray(int size){
     ArrayList<String> out = new ArrayList<String>(size);
@@ -26,9 +27,15 @@ while (original.indexOf("") >= 0){
 }
 }
 
-//public static ArrayList<String> makeReversedList( ArrayList<String> original){
+public static ArrayList<String> makeReversedList( ArrayList<String> original){
   //return a new ArrayList that is in the reversed order of the original.
-//}
+  ArrayList<String> out = new ArrayList<String>(original.size());
+  while (original.size() > 0){
+    out.add(original.get(original.size()-1));
+    original.remove(original.size()-1);
+  }
+  return out;
+}
 
 //public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
   //return a new ArrayList that has all values of a and b in alternating order that is:

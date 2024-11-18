@@ -14,7 +14,7 @@ public class Day1 {
             Scanner input = new Scanner(file);
             while (input.hasNext()) {
               String d = input.next();
-              int blocks = Integer.parseInt(d.substring(1,d.length()));
+              int blocks = Integer.parseInt(d.substring(1,d.length() - 1));
               if (d.charAt(0) == 'L'){
                 direct--;
                 direct += 4;

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Day1 {
 
-    public static int countDist(String filename) {
+    public static int countDistA(String filename) {
         try {
             int direct = 0;
             int xDist = 0;
@@ -14,7 +14,6 @@ public class Day1 {
             Scanner input = new Scanner(file);
             while (input.hasNext()) {
               String d = input.next();
-              System.out.println(d + "| " + d.length());
               int blocks = Integer.parseInt(d.substring(1,d.length() - 1));
               if (d.charAt(0) == 'L'){
                 direct += 3;
@@ -48,6 +47,6 @@ public class Day1 {
 
 
     public static void main(String[] args) {
-      System.out.println(countDist("Day1In.txt"));
+      System.out.println(countDistA("Day1In.txt"));
     }
 }

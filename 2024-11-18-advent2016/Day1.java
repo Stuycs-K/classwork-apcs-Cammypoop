@@ -14,15 +14,14 @@ public class Day1 {
             Scanner input = new Scanner(file);
             while (input.hasNext()) {
               String d = input.next();
+              System.out.println(d + "| " + d.length());
               int blocks = Integer.parseInt(d.substring(1,d.length() - 1));
               if (d.charAt(0) == 'L'){
-                direct--;
-                direct += 4;
+                direct += 3;
                 direct %= 4;
               }
               if (d.charAt(0) == 'R'){
                 direct++;
-                direct += 4;
                 direct %= 4;
               }
               if (direct == 0){
@@ -35,11 +34,11 @@ public class Day1 {
                 yDist -= blocks;
               }
               if (direct == 3){
-                xDist += blocks;
+                xDist -= blocks;
               }
             }
             input.close();
-            return (xDist + yDist);
+            return (Math.abs(xDist) + Math.abs(yDist));
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
             return 0;

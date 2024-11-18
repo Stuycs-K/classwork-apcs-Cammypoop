@@ -14,7 +14,7 @@ public class Day1 {
             Scanner input = new Scanner(file);
             while (input.hasNext()) {
               String d = input.next();
-              int blocks = d.charAt(1);
+              int blocks = Integer.parseInt(d.substring(1,d.length()));
               if (d.charAt(0) == 'L'){
                 direct--;
                 direct += 4;
@@ -25,16 +25,16 @@ public class Day1 {
                 direct += 4;
                 direct %= 4;
               }
-              if (d == 0){
+              if (direct == 0){
                 yDist += blocks;
               }
-              if (d == 1){
+              if (direct == 1){
                 xDist += blocks;
               }
-              if (d == 2){
+              if (direct == 2){
                 yDist -= blocks;
               }
-              if (d == 3){
+              if (direct == 3){
                 xDist += blocks;
               }
             }
@@ -49,6 +49,6 @@ public class Day1 {
 
 
     public static void main(String[] args) {
-      System.out.println("Day1In.txt");
+      System.out.println(countDist("Day1In.txt"));
     }
 }

@@ -23,7 +23,13 @@ public class Day2 {
       }
     }
     public static int solverA(String[] data) {
-        
+        int[][] pad = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
+        int x = 1;
+        int y = 1;
+        for (int i = 0; i < data.length; i++){
+
+        }
+
     }
 
 

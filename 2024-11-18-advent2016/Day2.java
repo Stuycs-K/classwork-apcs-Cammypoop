@@ -79,27 +79,29 @@ public class Day2 {
   public static String solverB(String[] data) {
     String[][] pad = new String[][] { { "", "", "1", "", "" }, { "", "2", "3", "4", "" }, { "5", "6", "7", "8", "9" },
         { "", "A", "B", "C", "" }, { "", "", "D", "", "", } };
-    int x = 0,y = 2;
+    int x = 0, y = 2;
     String combo ="";
     for (int i = 0; i < data.length; i++) {
       for (int j = 0; j < data[i].length(); j++) {
+        int newX = x, newY = y;
         if (data[i].charAt(j) == 'U') {
-          y--;
+          newY--;
         }
         if (data[i].charAt(j) == 'D') {
-          y++;
+          newY++;
         }
         if (data[i].charAt(j) == 'L') {
-          x--;
+          newX--;
         }
         if (data[i].charAt(j) == 'R') {
-          x++;
+          newX++;
         }
-        System.out.print(pad[y][x]);
+        if (newY >= 0 && newY < 5 && newX >= 0 && newX < 5 && !pad[newY][newX].isEmpty()) {
+          x = newX;
+          y = newY;
       }
-      System.out.println();
+      }
       combo += pad[y][x];
-      System.out.println();
     }
     return combo;
 

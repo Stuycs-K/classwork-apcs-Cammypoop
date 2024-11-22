@@ -76,9 +76,38 @@ public class Day2 {
 
   }
 
+  public static String solverB(String[] data) {
+    String[][] pad = new String[][] { { "", "", "1", "", "" }, { "", "2", "3", "4", "" }, { "5", "6", "7", "8", "9" },
+        { "", "A", "B", "C", "" }, { "", "", "D", "", "", } };
+    int x = 0,y = 2;
+    String combo ="";
+    for (int i = 0; i < data.length; i++) {
+      for (int j = 0; j < data[i].length(); j++) {
+        if (data[i].charAt(j) == 'U') {
+          y--;
+        }
+        if (data[i].charAt(j) == 'D') {
+          y++;
+        }
+        if (data[i].charAt(j) == 'L') {
+          x--;
+        }
+        if (data[i].charAt(j) == 'R') {
+          x++;
+        }
+        System.out.print(pad[y][x]);
+      }
+      System.out.println();
+      combo += pad[y][x];
+      System.out.println();
+    }
+    return combo;
+
+  }
+
   public static void main(String[] args) {
     String[] data = getData("Day2.txt");
     System.out.println(Arrays.deepToString(data));
-    System.out.println(solverA(data));
+    System.out.println(solverB(data));
   }
 }

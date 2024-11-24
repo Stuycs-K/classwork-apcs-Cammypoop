@@ -8,6 +8,7 @@ public class Day1 {
       int x = 0;
       int y = 0;
       File file = new File(filename);
+      System.out.println(file.getCanonicalPath());
       Scanner input = new Scanner(file);
       while (input.hasNext()) {
         String d = input.next();
@@ -37,6 +38,11 @@ public class Day1 {
       return (Math.abs(x) + Math.abs(y));
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
+      ex.printStackTrace();
+      return 0;
+    } catch (IOException ex) {
+      System.out.println("IO");
+      ex.printStackTrace();
       return 0;
     }
   }
@@ -61,24 +67,26 @@ public class Day1 {
           direct++;
           direct %= 4;
         }
-        if (direct == 0) {
-          y += blocks;
+        for (int i = 0; i < blocks; i++) {
+          if (direct == 0) {
+            y ++;
+          }
+          if (direct == 1) {
+            x ++;
+          }
+          if (direct == 2) {
+            y --;
+          }
+          if (direct == 3) {
+            x --;
+          }
+          String position = x + "," + y;
+          if (visited.contains(position)) {
+            input.close();
+            return Math.abs(x) + Math.abs(y);
+          }
+          visited.add(position);
         }
-        if (direct == 1) {
-          x += blocks;
-        }
-        if (direct == 2) {
-          y -= blocks;
-        }
-        if (direct == 3) {
-          x -= blocks;
-        }
-        String position = x + "," + y;
-        if (visited.contains(position)) {
-          input.close();
-          return Math.abs(x) + Math.abs(y);
-        }
-        visited.add(position);
       }
       input.close();
       return 0;

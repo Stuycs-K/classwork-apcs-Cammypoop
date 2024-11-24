@@ -37,11 +37,11 @@ public class Day7 {
         }
     }
 
-    public static boolean isABBA(String in) {
+    public static boolean ABBA(String in) {
         return (in.charAt(0) == in.charAt(3) && in.charAt(1) == in.charAt(2) && in.charAt(0) != in.charAt(1));
     }
 
-    public static boolean isIP(String ip) {
+    public static boolean TLS(String ip) {
         boolean abba = false;
         boolean bracket = false;
         for (int i = 0; i < ip.length() - 3; i++) {
@@ -51,9 +51,9 @@ public class Day7 {
             } else if (ip.charAt(i) == ']') {
                 bracket = false;
                 continue;
-            } else if(isABBA(ip.substring(i, i + 4)) && bracket) {
+            } else if (ABBA(ip.substring(i, i + 4)) && bracket) {
                 return false;
-            } else if (isABBA(ip.substring(i, i + 4))) {
+            } else if (ABBA(ip.substring(i, i + 4))) {
                 abba = true;
             }
         }
@@ -63,17 +63,58 @@ public class Day7 {
     public static int solverA(String[] data) {
         int count = 0;
         for (int i = 0; i < data.length; i++) {
-            if (isIP(data[i])){
+            if (TLS(data[i])) {
                 count++;
             }
         }
         return count;
     }
 
-    public static String solverB(String[] data) {
-        String out = "";
+    public static boolean ABA(String in) {
+        return (in.charAt(0) == in.charAt(2) && in.charAt(0) != in.charAt(1));
+    }
 
-        return out;
+    public static boolean BAB(String in, String aba) {
+        return (in.charAt(0) == aba.charAt(1) && in.charAt(1) == aba.charAt(0) && in.charAt(0) == in.charAt(2));
+    }
+
+    public static boolean SSL(String ip) {
+        ArrayList<String> aba = new ArrayList<String>(ip.length() - 2);
+        ArrayList<String> bab = new ArrayList<String>(ip.length() - 2);
+        boolean bracket = false;
+        for (int i = 0; i < ip.length() - 2; i++) {
+            if (ip.charAt(i) == '[') {
+                bracket = true;
+                continue;
+            } else if (ip.charAt(i) == ']') {
+                bracket = false;
+                continue;
+            }
+            if (bracket && ABA(ip.substring(i, i + 3))) {
+                bab.add(ip.substring(i, i + 3));
+            } else if (ABA(ip.substring(i, i + 3))) {
+                aba.add(ip.substring(i, i + 3));
+            }
+        }
+        for (int i = 0; i < aba.size(); i++) {
+            for (int j = 0; j < bab.size(); j++) {
+                 if (BAB(bab.get(j), aba.get(i))) {
+                     return true;
+                 }
+            }
+        }
+        return false;
+    }
+
+    public static int solverB(String[] data) {
+        int count = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (SSL(data[i])) {
+                // System.out.println(SSL(data[i])); 
+                count++;
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {

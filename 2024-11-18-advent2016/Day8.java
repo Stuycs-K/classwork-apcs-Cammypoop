@@ -92,17 +92,25 @@ public class Day8 {
                 }
             }
         }
+        visualize(screen);
         return count;
     }
-
-    // public static String solverB(String[] data) {
-
-    // }
+    public static void visualize(boolean[][] screen) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 50; j++) {
+                if (screen[i][j]) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
         String[] data = getData("Day8.txt");
         System.out.println(Arrays.deepToString(data));
-        System.out.println(solverA(data));
-        // System.out.println(solverB(data));
+        System.out.println(solver(data));
     }
 }

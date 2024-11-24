@@ -65,7 +65,7 @@ public class Day8 {
         }
     }
 
-    public static int solverA(String[] data) {
+    public static int solver(String[] data) {
         int count = 0;
         boolean[][] screen = new boolean[6][50];
         for (int i = 0; i < data.length; i++) {

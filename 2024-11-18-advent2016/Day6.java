@@ -50,8 +50,22 @@ public class Day6 {
                 maxFrequency = frequency[i];
             }
         }
-
         return mostCommon;
+    }
+    public static char findLeastCommon(String in) {
+        int[] frequency = new int[256]; 
+        for (int i = 0; i < in.length(); i++) {
+            frequency[in.charAt(i)]++;
+        }
+        char leastCommon = '\0';
+        int minFrequency = in.length();
+        for (int i = 0; i < frequency.length; i++) {
+            if (frequency[i] < minFrequency && frequency[i] != 0) {
+                leastCommon = (char) i;
+                minFrequency = frequency[i];
+            }
+        }
+        return leastCommon;
     }
 
     public static String solverA(String[] data) {
@@ -67,12 +81,20 @@ public class Day6 {
     }
 
     public static String solverB(String[] data) {
-        return "";
+        String out = "";
+        for (int i = 0; i < data[i].length(); i++) {
+            String column = "";
+            for (int j = 0; j < data.length; j++) {
+                column += data[j].charAt(i);
+            }
+            out += findLeastCommon(column);
+        }
+        return out;
     }
 
     public static void main(String[] args) {
         String[] data = getData("Day6.txt");
-        System.out.println(Arrays.deepToString(data));
+        //System.out.println(Arrays.deepToString(data));
         System.out.println(solverA(data));
         System.out.println(solverB(data));
     }

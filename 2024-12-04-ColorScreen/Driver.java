@@ -7,7 +7,7 @@ public class Driver {
         System.out.print(Text.HIDE_CURSOR);
 
         drawBorder();
-        System.out.print(Arrays.toString(generateRandomNumbers()));
+        displayNumbers(generateRandomNumbers());
         System.out.print(Text.RESET);
     }
 
@@ -31,5 +31,21 @@ public class Driver {
         return numbers;
     }
 
+    public static void displayNumbers(int[] numbers) {
+        Text.go(2, 20);
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] < 25) {
+                Text.color(Text.BRIGHT, Text.RED);
+            } else if (numbers[i] > 75) {
+                Text.color(Text.BRIGHT, Text.GREEN);
+            } else {
+                Text.color(Text.WHITE);
+            }
+            System.out.print(numbers[i]);
+            if (i < numbers.length - 1) {
+                System.out.print("                 ");
+            }
+        }
+    }
 
 }

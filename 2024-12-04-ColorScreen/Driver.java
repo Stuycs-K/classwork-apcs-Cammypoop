@@ -48,9 +48,9 @@ public class Driver {
         }
     }
     public static void drawSeparator() {
-        Text.go(3, 1);
+        Text.go(3, 2);
         Text.color(Text.BLUE, Text.background(Text.WHITE));
-        for (int i = 1; i <= 80; i++) {
+        for (int i = 1; i <= 78; i++) {
             System.out.print("-");
         }
     }

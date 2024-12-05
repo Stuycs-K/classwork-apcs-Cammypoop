@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Driver {
 
     public static void main(String[] args) {
@@ -8,7 +6,9 @@ public class Driver {
 
         drawBorder();
         displayNumbers(generateRandomNumbers());
+        drawSeparator();
         System.out.print(Text.RESET);
+        Text.go(31, 1);
     }
 
     public static void drawBorder() {
@@ -45,6 +45,13 @@ public class Driver {
             if (i < numbers.length - 1) {
                 System.out.print("                 ");
             }
+        }
+    }
+    public static void drawSeparator() {
+        Text.go(3, 1);
+        Text.color(Text.BLUE, Text.background(Text.WHITE));
+        for (int i = 1; i <= 80; i++) {
+            System.out.print("-");
         }
     }
 

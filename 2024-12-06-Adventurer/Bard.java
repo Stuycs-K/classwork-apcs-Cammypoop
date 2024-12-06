@@ -5,11 +5,20 @@ public class Bard extends Adventurer{
   private int notes, maxNotes;
   public Bard(String name){
       super(name);
-      
+      maxNotes = 50;
+      notes = maxNotes;
   }
 
   public Bard(String name, int hp){
       super(name, hp);
+      maxNotes = 50;
+      notes = maxNotes;
+  }
+
+  public Bard(String name, int hp, int notes){
+      super(name, hp);
+      maxNotes = notes;
+      this.notes = maxNotes;
   }
 
   //Abstract methods are meant to be implemented in child classes.
@@ -23,13 +32,13 @@ public class Bard extends Adventurer{
     return "notes";
   }
   //accessor methods
-  public abstract int getSpecial(){
+  public int getSpecial(){
     return notes;
   }
-  public abstract void setSpecial(int n){
+  public void setSpecial(int n){
     notes = n;
   }
-  public abstract int getSpecialMax(){
+  public int getSpecialMax(){
     return maxNotes;
   }
 
@@ -38,14 +47,24 @@ public class Bard extends Adventurer{
     support their allys
   */
   //hurt or hinder the target adventurer
-  // public abstract String attack(Adventurer other);
+  public String attack(Adventurer other){
+    other.applyDamage(other.getmaxHP() / 20);
+    return ("You hurt " + other.getName() + " for " + other.getmaxHP() / 20 + " HP! They now have " + other.getHP() + " HP!");
+  }
 
-  //heall or buff the target adventurer
-  // public abstract String support(Adventurer other);
 
-  //heall or buff self
-  // public abstract String support();
+  //heal or buff the target adventurer
+  public String support(Adventurer other){
+    return "";
+  }
+
+  //heal or buff self
+  public String support(){
+    return "";
+  }
 
   //hurt or hinder the target adventurer, consume some special resource
-  // public abstract String specialAttack(Adventurer other);
+  public String specialAttack(Adventurer other){
+    return "";
+  }
 }

@@ -1,10 +1,13 @@
 public class Driver{
 
   public static void main(String[] args){
-    Adventurer Dummy = new Bard("Dummy");
+    Adventurer enemy = new Bard("Target Dummy", 100);
 
-    Adventurer Chad = new Bard("Chad");
+    Adventurer hero = new Bard("Chad", 100);
 
-    System.out.println(Chad.attack(Dummy));
+    Adventurer teammate = new Bard("Brad", 100);
+
+    System.out.println(hero.attack(enemy));
+    System.out.println(hero.support(teammate));
   }
 }

@@ -48,8 +48,9 @@ public class Bard extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    other.applyDamage(other.getmaxHP() / 20);
-    return ("You hurt " + other.getName() + " for " + other.getmaxHP() / 20 + " HP! They now have " + other.getHP() + " HP!");
+    int damage = other.getmaxHP() / 20;
+    other.applyDamage(damage);
+    return ("You hit " + other.getName() + " with your lute for " + damage + " HP! They now have " + other.getHP() + " HP!");
   }
 
 

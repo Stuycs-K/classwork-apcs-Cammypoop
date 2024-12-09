@@ -48,7 +48,8 @@ public class Bard extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    int damage = other.getmaxHP() / 20;
+    Random rand = new Random();
+    int damage = other.getmaxHP() / (int) (rand.nextInt(6) + 5); // deals 5%-10% of target's max HP
     other.applyDamage(damage);
     return ("You hit " + other.getName() + " with your lute for " + damage + " HP! They now have " + other.getHP() + " HP!");
   }
@@ -56,16 +57,26 @@ public class Bard extends Adventurer{
 
   //heal or buff the target adventurer
   public String support(Adventurer other){
-    return "";
+    Random rand = new Random();
+    int heal = other.getmaxHP() / (int) (rand.nextInt(6) + 5); // heals 5%-10% of target's max HP
+    other.applyDamage(-heal);
+    return ("You played some soothing songs for " + other.getName() + " with your lute for " + heal + " HP! They now have " + other.getHP() + " HP!");
   }
 
   //heal or buff self
   public String support(){
-    return "";
+    Random rand = new Random();
+    int heal = getmaxHP() / (int) (rand.nextInt(6) + 5); // heals 5%-10% max HP
+    applyDamage(-heal);
+    return ("You played some soothing songs for " + heal + " HP! You now have " + getHP() + " HP!");
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    return "";
+    Random rand = new Random();
+    int debuff = getmaxHP() / (int) (rand.nextInt(11) + 10); // removes & damages 10%-20% of target's max HP
+    other.setmaxHP(other.getmaxHP() - debuff);
+    other.applyDamage(-debuff);
+    return("You jammed your lute so hard, you weakened " + other.getName() + " for " + debuff + " HP! They now have " + other.getHP() + " HP!");
   }
 }

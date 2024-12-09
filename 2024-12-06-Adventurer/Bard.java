@@ -51,6 +51,7 @@ public class Bard extends Adventurer{
     Random rand = new Random();
     int damage = other.getmaxHP() / (int) (rand.nextInt(6) + 5); // deals 5%-10% of target's max HP
     other.applyDamage(damage);
+    setSpecial(restoreSpecial(4) + getSpecial());
     return ("You hit " + other.getName() + " with your lute for " + damage + " HP! They now have " + other.getHP() + " HP!");
   }
 
@@ -73,10 +74,14 @@ public class Bard extends Adventurer{
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
+    if (getSpecial() < 20){
+      return ("You don't have enough " + getSpecialName() + "to jam, so instead: " + attack(other));
+    }
+    setSpecial(getSpecial() - 20);
     Random rand = new Random();
     int debuff = getmaxHP() / (int) (rand.nextInt(11) + 10); // removes & damages 10%-20% of target's max HP
     other.setmaxHP(other.getmaxHP() - debuff);
-    other.applyDamage(-debuff);
-    return("You jammed your lute so hard, you weakened " + other.getName() + " for " + debuff + " HP! They now have " + other.getHP() + " HP!");
+    other.applyDamage(debuff);
+    return("You jammed your lute so hard, you weakened " + other.getName() + " for " + debuff + " HP! They now have " + other.getHP() + " HP and " + other.getmaxHP() + " max HP!");
   }
 }

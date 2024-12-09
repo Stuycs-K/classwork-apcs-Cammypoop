@@ -6,7 +6,7 @@ public class Bard extends Adventurer {
   private int notes, maxNotes;
 
   public Bard(String name) {
-    super(name);
+    super(name, 12);
     maxNotes = 50;
     notes = maxNotes;
   }
@@ -96,7 +96,7 @@ public class Bard extends Adventurer {
   // hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
     if (getSpecial() < 20) {
-      return ("You don't have enough " + getSpecialName() + "to jam, so instead: " + attack(other));
+      return ("You don't have enough " + getSpecialName() + " to jam! You turn to your trusty lute: " + attack(other));
     }
     setSpecial(getSpecial() - 20);
     Random rand = new Random();

@@ -72,7 +72,7 @@ public class Bard extends Adventurer {
     int damage = other.getmaxHP() / (int) (rand.nextInt(6) + 5); // deals 5%-10% of target's max HP
     other.applyDamage(damage);
     setSpecial(restoreSpecial(4) + getSpecial());
-    return ("You hit " + other.getName() + " with your lute for " + damage + " HP! They now have " + other.getHP()
+    return ("You smacked " + other.getName() + " with your lute for " + damage + " HP! They now have " + other.getHP()
         + " HP!");
   }
 

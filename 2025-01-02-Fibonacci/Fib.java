@@ -6,6 +6,7 @@ public class Fib{
     return fib(n-2) + fib(n-1);
   }
   public static void main(String[] args){
-    fib(Integer.parseInt(args[0]));
+    System.out.println(fib(Integer.parseInt(args[0])));
+
   }
 }
